@@ -22,7 +22,14 @@ public class EtudiantController {
     }
 
    @PostMapping
-    public ResponseEntity<Etudiant> addEtudiant(@RequestBody Etudiant etudiant) {
+    public ResponseEntity<?> addEtudiant(@RequestBody Etudiant etudiant) {
+       if (etudiant.getNom() == null || etudiant.getNom().isEmpty() ||
+               etudiant.getPrenom() == null || etudiant.getPrenom().isEmpty() ||
+               etudiant.getAdresse() == null || etudiant.getAdresse().isEmpty() ||
+               etudiant.getNiveau() == null || etudiant.getNiveau().isEmpty()) {
+
+           return ResponseEntity.badRequest().body("{\"error\": \"One or more required fields are empty\"}");
+       }
         etudiantService.addEtudiant(etudiant);
         return new ResponseEntity<>(etudiant, HttpStatus.CREATED);
     }
