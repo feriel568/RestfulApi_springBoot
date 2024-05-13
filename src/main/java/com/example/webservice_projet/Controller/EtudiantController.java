@@ -1,7 +1,7 @@
 package com.example.webservice_projet.Controller;
 
 import com.example.webservice_projet.Entity.Etudiant;
-import com.example.webservice_projet.Service.EtudiantService;
+import com.example.webservice_projet.Service.EtudiantServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +14,10 @@ import java.util.Optional;
 @RequestMapping("/etudiants")
 public class EtudiantController {
 
-    private final EtudiantService etudiantService;
+    private final EtudiantServiceImpl etudiantService;
 
     @Autowired
-    public EtudiantController(EtudiantService etudiantService) {
+    public EtudiantController(EtudiantServiceImpl etudiantService) {
         this.etudiantService = etudiantService;
     }
 
