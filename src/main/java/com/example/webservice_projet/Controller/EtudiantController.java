@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/etudiants")
+@RequestMapping("/etudiants")
 public class EtudiantController {
 
     private final EtudiantService etudiantService;
@@ -39,7 +39,6 @@ public class EtudiantController {
             existingEtudiant.setAge(etudiant.getAge());
             existingEtudiant.setNiveau(etudiant.getNiveau());
             existingEtudiant.setAdresse(etudiant.getAdresse());
-            // Update other fields similarly if needed
 
             etudiantService.updateEtudiant(existingEtudiant);
             return ResponseEntity.ok(existingEtudiant);
