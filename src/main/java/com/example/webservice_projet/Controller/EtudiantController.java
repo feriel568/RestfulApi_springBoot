@@ -74,4 +74,11 @@ public class EtudiantController {
         }
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @GetMapping("/count")
+    public ResponseEntity<Integer> countEtudiants() {
+        int count = etudiantService.getAllEtudiants().size();
+        return new ResponseEntity<>(count, HttpStatus.OK);
+    }
+
 }
